@@ -1,0 +1,890 @@
+{
+  "inventory": {
+    "row_counts": {
+      "countries": 10,
+      "states": 22,
+      "districts": 105,
+      "phcs": 1339,
+      "medicines": 5,
+      "daily_metrics": 120510,
+      "medicine_consumption": 602550,
+      "inventory": 6695,
+      "predictions": 0,
+      "alerts": 0,
+      "simulation_events": 20
+    },
+    "start": "2026-06-16",
+    "end": "2026-09-13",
+    "days": 90
+  },
+  "geography": {
+    "countries": [
+      {
+        "country": "India",
+        "states": 4,
+        "districts": 105,
+        "phcs": 1339
+      },
+      {
+        "country": "Brazil",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "Russia",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "China",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "South Africa",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "Egypt",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "Ethiopia",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "Iran",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "United Arab Emirates",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      },
+      {
+        "country": "Indonesia",
+        "states": 2,
+        "districts": 0,
+        "phcs": 0
+      }
+    ],
+    "countries_with_phcs": 1,
+    "districts_with_phcs": 26,
+    "states_with_phcs": 1,
+    "phcs": 1339,
+    "phcs_per_district": {
+      "min": 27,
+      "median": 49.0,
+      "max": 80
+    },
+    "districts_missing_coordinates": 105,
+    "districts_total": 105,
+    "phcs_missing_coordinates": 1339
+  },
+  "static_attributes": {
+    "total_beds": {
+      "distinct": 1,
+      "min": 30,
+      "max": 30
+    },
+    "total_doctors": {
+      "distinct": 1,
+      "min": 5,
+      "max": 5
+    },
+    "total_nurses": {
+      "distinct": 1,
+      "min": 12,
+      "max": 12
+    },
+    "icu_beds": {
+      "distinct": 1,
+      "min": 3,
+      "max": 3
+    },
+    "oxygen_beds": {
+      "distinct": 1,
+      "min": 9,
+      "max": 9
+    },
+    "ambulances": {
+      "distinct": 3,
+      "min": 1,
+      "max": 3
+    },
+    "cold_storage_capacity": {
+      "distinct": 150,
+      "min": 50,
+      "max": 199
+    }
+  },
+  "regimes": {
+    "threshold": 0.02,
+    "outbreak_days": 16,
+    "normal_days": 74,
+    "surveillance_segments": [
+      {
+        "start": "2026-07-30",
+        "end": "2026-08-14",
+        "days": 16
+      }
+    ],
+    "demand_shift_segments": [
+      {
+        "start": "2026-07-30",
+        "end": "2026-08-14",
+        "days": 16
+      }
+    ],
+    "surveillance_demand_agreement": 1.0,
+    "district_prevalence_outbreak": {
+      "n": 416,
+      "mean": 0.14589789262466601,
+      "std": 0.05027619138913743,
+      "cv": 0.3445984755823509,
+      "min": 0.02127659574468085,
+      "p05": 0.06876959247648903,
+      "p50": 0.14285714285714285,
+      "p95": 0.22687798523664784,
+      "max": 0.3333333333333333
+    },
+    "district_prevalence_normal_max": 0.0
+  },
+  "targets": {
+    "patient_footfall": {
+      "normal": {
+        "n": 99086,
+        "mean": 89.54180207092828,
+        "std": 23.102955810507627,
+        "cv": 0.2580130763082834,
+        "min": 50.0,
+        "p05": 53.0,
+        "p50": 90.0,
+        "p95": 126.0,
+        "max": 129.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 159.53897498132935,
+        "std": 34.87381195487167,
+        "cv": 0.21859117472049014,
+        "min": 100.0,
+        "p05": 106.0,
+        "p50": 159.0,
+        "p95": 214.0,
+        "max": 219.0
+      },
+      "outbreak_uplift": 1.7817262026394618
+    },
+    "bed_occupancy": {
+      "normal": {
+        "n": 99086,
+        "mean": 57.501701854954284,
+        "std": 10.081108317823562,
+        "cv": 0.1753184339352729,
+        "min": 40.0,
+        "p05": 41.76,
+        "p50": 57.54,
+        "p95": 73.25,
+        "max": 75.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 82.519768017177,
+        "std": 7.208733371777933,
+        "cv": 0.08735765435352885,
+        "min": 70.0,
+        "p05": 71.33,
+        "p50": 82.52,
+        "p95": 93.72,
+        "max": 95.0
+      },
+      "outbreak_uplift": 1.4350839254345857
+    },
+    "staff_availability": {
+      "normal": {
+        "n": 99086,
+        "mean": 90.00570837454332,
+        "std": 5.7875188053205,
+        "cv": 0.06430168608013986,
+        "min": 80.0,
+        "p05": 81.01,
+        "p50": 90.02,
+        "p95": 98.99,
+        "max": 100.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 89.98702483196415,
+        "std": 5.783159923650741,
+        "cv": 0.06426659770616745,
+        "min": 80.0,
+        "p05": 80.96,
+        "p50": 90.02,
+        "p95": 99.0,
+        "max": 100.0
+      },
+      "outbreak_uplift": 0.9997924182486135
+    },
+    "ors": {
+      "normal": {
+        "n": 99086,
+        "mean": 39.49141150112024,
+        "std": 11.528370146755073,
+        "cv": 0.29192094454329776,
+        "min": 20.0,
+        "p05": 22.0,
+        "p50": 39.0,
+        "p95": 57.0,
+        "max": 59.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 79.08280433159074,
+        "std": 23.12593084447094,
+        "cv": 0.292426792903106,
+        "min": 40.0,
+        "p05": 42.0,
+        "p50": 80.0,
+        "p95": 114.0,
+        "max": 118.0
+      },
+      "outbreak_uplift": 2.002531723368445
+    },
+    "paracetamol": {
+      "normal": {
+        "n": 99086,
+        "mean": 69.51511818016672,
+        "std": 17.32046695415054,
+        "cv": 0.24916115238788764,
+        "min": 40.0,
+        "p05": 42.0,
+        "p50": 70.0,
+        "p95": 97.0,
+        "max": 99.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 125.39095407020163,
+        "std": 31.28139072156339,
+        "cv": 0.24947087254835087,
+        "min": 72.0,
+        "p05": 77.4,
+        "p50": 126.0,
+        "p95": 174.6,
+        "max": 178.2
+      },
+      "outbreak_uplift": 1.8037940142059166
+    },
+    "iv_fluids": {
+      "normal": {
+        "n": 99086,
+        "mean": 9.499455018872494,
+        "std": 2.8744062547157343,
+        "cv": 0.30258643774881544,
+        "min": 5.0,
+        "p05": 5.0,
+        "p50": 10.0,
+        "p95": 14.0,
+        "max": 14.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 14.239077669902912,
+        "std": 4.288103714459505,
+        "cv": 0.30115038444682796,
+        "min": 7.5,
+        "p05": 7.5,
+        "p50": 13.5,
+        "p95": 21.0,
+        "max": 21.0
+      },
+      "outbreak_uplift": 1.498936269671707
+    },
+    "antibiotics": {
+      "normal": {
+        "n": 99086,
+        "mean": 27.022566255575963,
+        "std": 7.214040670615364,
+        "cv": 0.26696356676068045,
+        "min": 15.0,
+        "p05": 16.0,
+        "p50": 27.0,
+        "p95": 38.0,
+        "max": 39.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 26.99043129200896,
+        "std": 7.215150327618516,
+        "cv": 0.26732252810479173,
+        "min": 15.0,
+        "p05": 16.0,
+        "p50": 27.0,
+        "p95": 38.0,
+        "max": 39.0
+      },
+      "outbreak_uplift": 0.9988108100739554
+    },
+    "insulin": {
+      "normal": {
+        "n": 99086,
+        "mean": 3.498970591203601,
+        "std": 1.1186201016970791,
+        "cv": 0.31969977241571734,
+        "min": 2.0,
+        "p05": 2.0,
+        "p50": 4.0,
+        "p95": 5.0,
+        "max": 5.0
+      },
+      "outbreak": {
+        "n": 21424,
+        "mean": 3.502333831217326,
+        "std": 1.1154819608857747,
+        "cv": 0.3184967552045318,
+        "min": 2.0,
+        "p05": 2.0,
+        "p50": 4.0,
+        "p95": 5.0,
+        "max": 5.0
+      },
+      "outbreak_uplift": 1.0009612084257524
+    }
+  },
+  "temporal": {
+    "patient_footfall": {
+      "acf_within_regime": [
+        0.002530059412147498,
+        0.0001957312294639791,
+        0.0030118078761713117,
+        -4.432742372258293e-05,
+        -0.004494977614263694,
+        0.0028841183142219,
+        -0.0012571346531982468,
+        -0.002302579430618101,
+        -0.004747901520036997,
+        -0.000137692828778232,
+        -0.009089601473114576,
+        -0.004659038089337721,
+        -9.440173055678806e-05,
+        0.0029282448492924384
+      ],
+      "max_abs_acf_within_regime": 0.009089601473114576,
+      "lag1_pooled": 0.4838610003681328,
+      "dow_means_normal": [
+        89.55541448842419,
+        89.8635345237287,
+        89.55170072645801,
+        89.48230022404779,
+        89.66855862584018,
+        89.16443750424332,
+        89.51401996062191
+      ],
+      "dow_relative_range": 0.007807493297170931
+    },
+    "bed_occupancy": {
+      "acf_within_regime": [
+        0.0009560426618381357,
+        -0.00029269874319957353,
+        -0.006495478908966314,
+        0.004975576427997627,
+        -0.0033429164718319624,
+        -0.0013414337331953533,
+        0.0028096614357525063,
+        -0.0005833622618945806,
+        -1.835992376835415e-05,
+        -0.002078938089463309,
+        0.0017139735970526629,
+        0.002774754257438673,
+        -0.002819190277494136,
+        -0.003063793416848757
+      ],
+      "max_abs_acf_within_regime": 0.006495478908966314,
+      "lag1_pooled": 0.4623818494207007,
+      "dow_means_normal": [
+        57.51331217326363,
+        57.52370629370629,
+        57.514285423314554,
+        57.48290291262136,
+        57.50830171769977,
+        57.43096272659379,
+        57.53838821372801
+      ],
+      "dow_relative_range": 0.0018682140470415707
+    },
+    "staff_availability": {
+      "acf_within_regime": [
+        0.0034127291858415247,
+        -0.001287094002675837,
+        0.00013782874584566067,
+        0.0016197427643890128,
+        -0.0031594340561221577,
+        0.004658832949030909,
+        0.0014581794893061724,
+        0.002507477829179868,
+        0.001665592704557574,
+        0.0011318212777354216,
+        -0.0002022798235828035,
+        -0.0005581234117742052,
+        -0.0045181650086569625,
+        0.0005537342823947066
+      ],
+      "max_abs_acf_within_regime": 0.004658832949030909,
+      "lag1_pooled": 0.003014604410897571,
+      "dow_means_normal": [
+        90.06123674383868,
+        89.92789734537307,
+        90.05835766175571,
+        89.92847274085138,
+        90.03419492158328,
+        90.04887636635209,
+        89.98153914047118
+      ],
+      "dow_relative_range": 0.0014814549085124618
+    },
+    "ors": {
+      "acf_within_regime": [
+        0.002796373638844389,
+        -0.007146117821100701,
+        0.0022190570554162944,
+        0.0011634023682795054,
+        -0.0036095020439332317,
+        0.0005501103743218383,
+        -0.003410786622976961,
+        0.0049512443194179466,
+        0.004702664822279333,
+        0.008184639003209189,
+        0.004653897121799977,
+        -0.00676988370641348,
+        -0.003381900134907186,
+        0.004866671723773439
+      ],
+      "max_abs_acf_within_regime": 0.008184639003209189,
+      "lag1_pooled": 0.4895874369942693,
+      "dow_means_normal": [
+        39.426736370425694,
+        39.528277547695026,
+        39.400977663113586,
+        39.5067214339059,
+        39.407169529499626,
+        39.5572679747437,
+        39.60058388213728
+      ],
+      "dow_relative_range": 0.005054420985130667
+    },
+    "paracetamol": {
+      "acf_within_regime": [
+        -0.002580157271001857,
+        0.004606909971482237,
+        0.006023577219017214,
+        -0.0045475318501811204,
+        0.0037180167166584086,
+        0.001939584120927604,
+        -0.0007796540363251592,
+        0.0009856820058221094,
+        -0.0014785175449654813,
+        0.0022980885456661106,
+        -0.0021670039417895576,
+        0.003013643117759676,
+        0.003043697857601252,
+        0.007517284896917319
+      ],
+      "max_abs_acf_within_regime": 0.007517284896917319,
+      "lag1_pooled": 0.47965214222841585,
+      "dow_means_normal": [
+        69.4411501120239,
+        69.51904406273339,
+        69.55041075429425,
+        69.41411501120238,
+        69.69141150112024,
+        69.4596374499287,
+        69.53017855930477
+      ],
+      "dow_relative_range": 0.003989009832352901
+    },
+    "iv_fluids": {
+      "acf_within_regime": [
+        0.0024634355560368367,
+        0.004012687302180473,
+        -0.0037742201177472963,
+        -0.0019323838684985834,
+        0.000784021467687403,
+        -0.0016958043284418223,
+        -0.0013429844594456703,
+        0.0014263053699821824,
+        0.0024218850194235963,
+        -0.0016067592691848737,
+        -0.000653824659431393,
+        0.0005129745490463319,
+        0.005204929905259198,
+        -0.0017022547518826224
+      ],
+      "max_abs_acf_within_regime": 0.005204929905259198,
+      "lag1_pooled": 0.2305189342888271,
+      "dow_means_normal": [
+        9.463256161314414,
+        9.531196958381424,
+        9.486523185552311,
+        9.515011202389843,
+        9.49865571321882,
+        9.500033946635888,
+        9.499558693733452
+      ],
+      "dow_relative_range": 0.007152073138093963
+    },
+    "antibiotics": {
+      "acf_within_regime": [
+        -0.0011991531493323851,
+        0.0035818120229496385,
+        0.0022703983295473676,
+        0.007858805439716959,
+        -0.0030740743512471034,
+        0.0038111876923368274,
+        -0.003978046353931335,
+        0.00878344726026191,
+        -0.0074041138539828995,
+        0.0007629498870335068,
+        0.003993027273488366,
+        -0.003922302428223767,
+        0.0006075854387702521,
+        0.005593089401256339
+      ],
+      "max_abs_acf_within_regime": 0.00878344726026191,
+      "lag1_pooled": -0.0014755412170089335,
+      "dow_means_normal": [
+        26.87864077669903,
+        26.99456853825786,
+        27.097698418086768,
+        27.092979835698284,
+        27.031516056758775,
+        27.027632561613146,
+        27.029058320320456
+      ],
+      "dow_relative_range": 0.008106470692528596
+    },
+    "insulin": {
+      "acf_within_regime": [
+        0.0004597369196574926,
+        -0.00018959919006418226,
+        0.002506560621258554,
+        0.0012112371755799098,
+        -0.0008097384067981043,
+        0.0013251234311281981,
+        -0.0025245615585546347,
+        -0.003789224370321783,
+        -0.0005741572113192823,
+        -0.00029633589819541816,
+        -0.003850380062370702,
+        0.0007491590101023678,
+        -0.0029493299787724868,
+        0.0008732258793005027
+      ],
+      "max_abs_acf_within_regime": 0.003850380062370702,
+      "lag1_pooled": 0.0004479217534268335,
+      "dow_means_normal": [
+        3.480657206870799,
+        3.4886278769773917,
+        3.5007807726254327,
+        3.5152352501867066,
+        3.5024645257654967,
+        3.4924299001968904,
+        3.512729988458144
+      ],
+      "dow_relative_range": 0.009882347511818646
+    }
+  },
+  "aggregation_noise": {
+    "patient_footfall": {
+      "phc_cv": 0.2580130763082834,
+      "district_cv": 0.0380939213541278,
+      "network_cv": 0.006934621804205393
+    },
+    "bed_occupancy": {
+      "phc_cv": 0.1753184339352729,
+      "district_cv": 0.025923222464556524,
+      "network_cv": 0.004933894822248592
+    },
+    "staff_availability": {
+      "phc_cv": 0.06430168608013986,
+      "district_cv": 0.009438047366740298,
+      "network_cv": 0.0017608158770290594
+    },
+    "ors": {
+      "phc_cv": 0.29192094454329776,
+      "district_cv": 0.041367038206874214,
+      "network_cv": 0.006978973899254005
+    },
+    "paracetamol": {
+      "phc_cv": 0.24916115238788764,
+      "district_cv": 0.03613165403870966,
+      "network_cv": 0.007690483231308844
+    },
+    "iv_fluids": {
+      "phc_cv": 0.30258643774881544,
+      "district_cv": 0.04274176972430335,
+      "network_cv": 0.007471635063651894
+    },
+    "antibiotics": {
+      "phc_cv": 0.26696356676068045,
+      "district_cv": 0.039408655090906505,
+      "network_cv": 0.00828574626905793
+    },
+    "insulin": {
+      "phc_cv": 0.31969977241571734,
+      "district_cv": 0.04725151655642268,
+      "network_cv": 0.008465755089355844
+    }
+  },
+  "drivers": {
+    "patient_footfall": {
+      "bed_occupancy": {
+        "pooled": 0.5094870487691648,
+        "within_regime": 0.000579912321705584
+      },
+      "staff_availability": {
+        "pooled": -0.004328557856606272,
+        "within_regime": -0.004971962355079161
+      },
+      "outbreak_flag": {
+        "pooled": 0.25039280442092016,
+        "within_regime": -0.0034523731499306195
+      }
+    },
+    "bed_occupancy": {
+      "patient_footfall": {
+        "pooled": 0.509487048769165,
+        "within_regime": 0.000579912321705584
+      },
+      "staff_availability": {
+        "pooled": 0.0038041775208555854,
+        "within_regime": 0.00658657367099541
+      },
+      "outbreak_flag": {
+        "pooled": 0.24635853192402526,
+        "within_regime": 8.818699879274896e-05
+      }
+    },
+    "staff_availability": {
+      "patient_footfall": {
+        "pooled": -0.004328557856606272,
+        "within_regime": -0.004971962355079161
+      },
+      "bed_occupancy": {
+        "pooled": 0.003804177520855586,
+        "within_regime": 0.00658657367099541
+      },
+      "outbreak_flag": {
+        "pooled": -0.0027384949174568177,
+        "within_regime": -0.0024623351301277063
+      }
+    },
+    "ors": {
+      "patient_footfall": {
+        "pooled": 0.5271704021728136,
+        "within_regime": 0.003690134881360876
+      },
+      "bed_occupancy": {
+        "pooled": 0.5126751033252372,
+        "within_regime": 0.0008580179139613672
+      },
+      "staff_availability": {
+        "pooled": -0.0005688538338817788,
+        "within_regime": 0.00047857807021118497
+      },
+      "outbreak_flag": {
+        "pooled": 0.2565376448555231,
+        "within_regime": 0.003721222239693759
+      }
+    },
+    "paracetamol": {
+      "patient_footfall": {
+        "pooled": 0.5232725094604668,
+        "within_regime": 0.004055952116088388
+      },
+      "bed_occupancy": {
+        "pooled": 0.5078197398952434,
+        "within_regime": -0.0009188793223754273
+      },
+      "staff_availability": {
+        "pooled": -0.00161901309970233,
+        "within_regime": -0.0010519820869052785
+      },
+      "outbreak_flag": {
+        "pooled": 0.25555388610924407,
+        "within_regime": 0.005220714825205254
+      }
+    },
+    "iv_fluids": {
+      "patient_footfall": {
+        "pooled": 0.3577037827980731,
+        "within_regime": -0.001281980566837649
+      },
+      "bed_occupancy": {
+        "pooled": 0.34906484486111994,
+        "within_regime": -0.0006950869508582762
+      },
+      "staff_availability": {
+        "pooled": -0.0026053696445655,
+        "within_regime": -0.002295354139820418
+      },
+      "outbreak_flag": {
+        "pooled": 0.17635270594653796,
+        "within_regime": 0.0036387494448809348
+      }
+    },
+    "antibiotics": {
+      "patient_footfall": {
+        "pooled": -0.0001663061786572008,
+        "within_regime": 0.0015400852591149965
+      },
+      "bed_occupancy": {
+        "pooled": -0.0017449799844567744,
+        "within_regime": -0.0007680919512604444
+      },
+      "staff_availability": {
+        "pooled": -0.003725759542183698,
+        "within_regime": -0.0037278700076000763
+      },
+      "outbreak_flag": {
+        "pooled": -0.002580529945004615,
+        "within_regime": -0.002118892684142533
+      }
+    },
+    "insulin": {
+      "patient_footfall": {
+        "pooled": -0.0018434530103675054,
+        "within_regime": -0.0038696852533119607
+      },
+      "bed_occupancy": {
+        "pooled": 0.0007202491990464834,
+        "within_regime": -0.0001269409311051432
+      },
+      "staff_availability": {
+        "pooled": 0.0010537391532910788,
+        "within_regime": 0.0010551603094759194
+      },
+      "outbreak_flag": {
+        "pooled": -0.0010620676684892532,
+        "within_regime": -0.001562679351461445
+      }
+    }
+  },
+  "outbreak_signal": {
+    "flag_type_mismatch_share": 0.045133183968135426,
+    "flag_share_during_outbreak": 0.14479088872292756,
+    "flag_share_during_normal": 0.0,
+    "footfall_flagged_vs_unflagged_during_outbreak": 0.9962690955464996
+  },
+  "stock": {
+    "ledger_coherence": 0.005897407926425053,
+    "days_of_supply": {
+      "Antibiotics": {
+        "n": 1339,
+        "mean": 50.173810482408406,
+        "std": 27.06091996644001,
+        "cv": 0.5393435281525593,
+        "min": 0.15151515151515152,
+        "p05": 0.8916386797915461,
+        "p50": 51.12707182320442,
+        "p95": 90.9199359336725,
+        "max": 120.46043165467626,
+        "share_le_3_days": 0.1075429424943988,
+        "share_le_7_days": 0.1075429424943988
+      },
+      "IV Fluids": {
+        "n": 1339,
+        "mean": 34.13088887459254,
+        "std": 18.001293489236936,
+        "cv": 0.5274194163351346,
+        "min": 0.49295774647887325,
+        "p05": 3.6255524565543875,
+        "p50": 34.453125,
+        "p95": 62.582089552238806,
+        "max": 77.0,
+        "share_le_3_days": 0.037341299477221805,
+        "share_le_7_days": 0.09111277072442121
+      },
+      "Insulin": {
+        "n": 1339,
+        "mean": 53.03260994491125,
+        "std": 28.910491847031036,
+        "cv": 0.5451455600066152,
+        "min": 1.2962962962962963,
+        "p05": 9.108300395256919,
+        "p50": 52.18181818181818,
+        "p95": 99.59848484848484,
+        "max": 131.25,
+        "share_le_3_days": 0.014936519790888723,
+        "share_le_7_days": 0.038088125466766244
+      },
+      "ORS": {
+        "n": 1339,
+        "mean": 29.205687556985364,
+        "std": 14.69637211188895,
+        "cv": 0.5032024013546601,
+        "min": 0.11627906976744186,
+        "p05": 0.7692096774193549,
+        "p50": 29.954063604240282,
+        "p95": 51.617378129117235,
+        "max": 70.63959390862944,
+        "share_le_3_days": 0.09858103061986558,
+        "share_le_7_days": 0.09858103061986558
+      },
+      "Paracetamol": {
+        "n": 1339,
+        "mean": 32.63827928414583,
+        "std": 16.3038009176684,
+        "cv": 0.4995300388151294,
+        "min": 0.08502024291497975,
+        "p05": 0.4683157003808719,
+        "p50": 33.71367521367521,
+        "p95": 56.660958904109556,
+        "max": 69.96354166666667,
+        "share_le_3_days": 0.10007468259895444,
+        "share_le_7_days": 0.10007468259895444
+      }
+    }
+  },
+  "events": {
+    "events_total": 20,
+    "events_active": 15,
+    "events_started_before_data": 5,
+    "active_event_types": {
+      "DENGUE": 5,
+      "FLOOD": 5,
+      "HEATWAVE": 5
+    },
+    "footfall_ratio_event_vs_control": {
+      "mean": 1.0044967125960211,
+      "min": 0.9811223829359261,
+      "max": 1.0206088691359416
+    }
+  },
+  "implications": [
+    "Within a regime, daily values of patient_footfall, bed_occupancy, staff_availability, ors, paracetamol, iv_fluids, antibiotics, insulin behave like independent noise (max |ACF| < 0.05 up to lag 14). Lag features add little, accuracy is bounded by irreducible noise, so evaluation reports skill against naive baselines and a non-deployable noise floor.",
+    "Outbreak regime multiplies demand: patient_footfall x1.78, bed_occupancy x1.44, ors x2.00, paracetamol x1.80, iv_fluids x1.50. A log-link (multiplicative) model with a scenario covariate for outbreak intensity fits this shape.",
+    "staff_availability, antibiotics, insulin show no outbreak response (<5%); forecasts reduce to a stable mean and threshold-based risk rules are sufficient.",
+    "Aggregating PHCs to districts cuts relative noise to 15% of PHC level (median across targets), so district and higher forecasts are far more precise than single-PHC ones.",
+    "No day-of-week pattern (<2% range); calendar features stay in the model but should carry ~zero weight.",
+    "Footfall correlates with bed_occupancy, ors, paracetamol, iv_fluids only through the shared outbreak regime (high pooled, ~0 within-regime correlation): footfall is a regime indicator, not a per-PHC driver.",
+    "Only 0.6% of opening stocks match the previous closing stock; stock-out risk must use the inventory snapshot plus forecasts, not the historical ledger.",
+    "Active simulation_events show no footfall effect in their districts (ratio 1.00); they are used as scenario inputs, never as training labels.",
+    "Only 1 country has PHC data; the country and world federation tiers are exercised with a single member until more countries onboard.",
+    "District/PHC coordinates are missing, so distance-based features and transfer costs are unavailable.",
+    "History holds 1 outbreak episode(s): the outbreak effect is estimated from one episode, and the cold-start backtest fold measures performance before any outbreak is seen.",
+    "4.5% of rows disagree between outbreak_flag and outbreak_type; features use the flag only."
+  ]
+}

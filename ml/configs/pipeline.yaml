@@ -1,0 +1,136 @@
+# SENETRA ML pipeline configuration.
+# Relative paths resolve against the ml/ directory (or $SENETRA_ML_HOME).
+# Environment overrides: SENETRA_DB_PATH, MLFLOW_TRACKING_URI.
+
+data:
+  db_path: ../senetra.db
+  # Origins need at least this many days of PHC history (>= 7 for the seasonal-naive baseline).
+  min_history_days: 7
+  # A district-day counts as an outbreak day when more than this share of its PHCs flag an outbreak.
+  outbreak_prevalence_threshold: 0.02
+
+forecast:
+  horizon_days: 7
+  rolling_windows: [3, 7, 14, 28]
+
+scenarios:
+  # Simulator severity that corresponds to the outbreak intensity observed in history (intensity 1.0).
+  severity_reference: 8
+  # Scenario intensities are capped so forecasts never extrapolate far beyond observed outbreaks.
+  max_intensity: 1.5
+
+targets:
+  patient_footfall:
+    source: daily_metrics
+    column: patient_footfall
+    family: poisson
+    aggregation: sum
+    unit: patients
+  bed_occupancy:
+    source: daily_metrics
+    column: bed_occupancy
+    family: gaussian
+    aggregation: mean
+    bounds: [0, 100]
+    unit: percent
+  staff_availability:
+    source: daily_metrics
+    column: staff_availability
+    family: gaussian
+    aggregation: mean
+    bounds: [0, 100]
+    unit: percent
+  ors:
+    source: medicine_consumption
+    medicine: ORS
+    family: poisson
+    aggregation: sum
+  paracetamol:
+    source: medicine_consumption
+    medicine: Paracetamol
+    family: poisson
+    aggregation: sum
+  iv_fluids:
+    source: medicine_consumption
+    medicine: IV Fluids
+    family: poisson
+    aggregation: sum
+  antibiotics:
+    source: medicine_consumption
+    medicine: Antibiotics
+    family: poisson
+    aggregation: sum
+  insulin:
+    source: medicine_consumption
+    medicine: Insulin
+    family: poisson
+    aggregation: sum
+
+federated:
+  # newton: exact federated Newton (PHCs send summed loss/gradient/Hessian; equals a centralized fit).
+  # fedavg: FedAvg/FedProx parameter averaging (supports clipping and DP noise; biased on heterogeneous clients).
+  algorithm: newton
+  rounds: 10
+  l2: 0.001
+  # Country, district and PHC models refine their parent, shrunk toward it with a prior worth N rows.
+  level_newton_steps: 3
+  country_prior_rows: 2000
+  district_prior_rows: 2000
+  phc_prior_rows: 500
+  personalization_steps: 2
+  local_only_steps: 8
+  # FedAvg / FedProx only. No formal differential-privacy accounting is performed.
+  district_rounds: 2
+  local_newton_steps: 1
+  proximal_mu: 0.01
+  client_fraction: 1.0
+  update_clip_norm: null
+  dp_noise_multiplier: 0.0
+  seed: 42
+
+benchmarks:
+  xgboost:
+    enabled: true
+    num_boost_round: 400
+    early_stopping_rounds: 30
+    params:
+      eta: 0.05
+      max_depth: 6
+      min_child_weight: 50
+      subsample: 0.8
+      colsample_bytree: 0.8
+      tree_method: hist
+
+backtest:
+  n_folds: 4
+  step_days: 14
+  test_origin_days: 7
+
+evaluation:
+  gates:
+    max_district_wape: 0.15
+    min_phc_skill_vs_baseline: 0.0
+    baseline: bl_mean7
+    district_coverage80: [0.7, 0.95]
+    max_regression_vs_champion: 0.05
+
+risk:
+  # Days of supply at or below each value map to that risk level; above `watch` is HEALTHY.
+  critical_days: 3
+  high_days: 7
+  watch_days: 14
+
+monitoring:
+  window_days: 14
+  psi_warn: 0.1
+  psi_alert: 0.25
+  degradation_ratio_alert: 1.3
+  max_staleness_days: 2
+  min_reporting_ratio: 0.95
+
+mlflow:
+  tracking_uri: null
+  experiment_prefix: senetra
+  registered_model_prefix: senetra-forecast
+  champion_alias: champion
+  challenger_alias: challenger

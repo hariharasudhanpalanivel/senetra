@@ -1,0 +1,370 @@
+[
+  {
+    "target": "patient_footfall",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.038038659727789144,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.11297144930009417,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7810047095761381,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.038038659727789144,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.038038659727789144,
+    "district_wape_scenario": 0.025469286177279296,
+    "district_wape_xgb": 0.04114310948639841,
+    "district_wape_local": 0.07736900602527234,
+    "district_wape_baseline": 0.08802845535510159,
+    "district_wape_outbreak_scenario": 0.022170947739776833,
+    "district_wape_cold_start_outbreak": 0.438413743104585,
+    "world_wape_observed": 0.01879312113908379,
+    "phc_mae": 24.35298638755329,
+    "phc_skill_vs_baseline": 0.11297144930009417,
+    "phc_noise_floor_mae": 23.482693444373126,
+    "district_coverage80": 0.7810047095761381,
+    "evaluation_run_id": "bd9bcd84240941a19e86d655e2037c3f"
+  },
+  {
+    "target": "bed_occupancy",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.024829856911436163,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.10895449035344107,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7673992673992674,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.024829856911436163,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.024829856911436163,
+    "district_wape_scenario": 0.01753052630961693,
+    "district_wape_xgb": 0.02678581893110841,
+    "district_wape_local": 0.04238459209090433,
+    "district_wape_baseline": 0.05444816997450339,
+    "district_wape_outbreak_scenario": 0.010380308718108156,
+    "district_wape_cold_start_outbreak": 0.30423537223077407,
+    "world_wape_observed": 0.012244369959251898,
+    "phc_mae": 8.258651127866386,
+    "phc_skill_vs_baseline": 0.10895449035344107,
+    "phc_noise_floor_mae": 7.970558932664555,
+    "district_coverage80": 0.7673992673992674,
+    "evaluation_run_id": "e60100c9cd4b48cb8b42a87c4aa549cf"
+  },
+  {
+    "target": "staff_availability",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.00764483606763122,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.0458399349532963,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.793563579277865,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.00764483606763122,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.00764483606763122,
+    "district_wape_scenario": 0.007643801932457971,
+    "district_wape_xgb": 0.007620698289957725,
+    "district_wape_local": 0.010856488536210527,
+    "district_wape_baseline": 0.008114732616949729,
+    "district_wape_outbreak_scenario": 0.007615706172833605,
+    "district_wape_cold_start_outbreak": 0.008153292551878289,
+    "world_wape_observed": 0.0018633350093414432,
+    "phc_mae": 5.012688514801065,
+    "phc_skill_vs_baseline": 0.0458399349532963,
+    "phc_noise_floor_mae": 5.04154407022386,
+    "district_coverage80": 0.793563579277865,
+    "evaluation_run_id": "c67f25fdc88042b696aa34fec6286c4c"
+  },
+  {
+    "target": "ors",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.047110860416189206,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.1177620213502979,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7919937205651492,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.047110860416189206,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.047110860416189206,
+    "district_wape_scenario": 0.03223227795429098,
+    "district_wape_xgb": 0.05906647684621119,
+    "district_wape_local": 0.11676332289378835,
+    "district_wape_baseline": 0.10649487873850104,
+    "district_wape_outbreak_scenario": 0.032271706793215324,
+    "district_wape_cold_start_outbreak": 0.5012428475888954,
+    "world_wape_observed": 0.023824734498570043,
+    "phc_mae": 13.708878935296996,
+    "phc_skill_vs_baseline": 0.1177620213502979,
+    "phc_noise_floor_mae": 13.198622644418858,
+    "district_coverage80": 0.7919937205651492,
+    "evaluation_run_id": "6064d9aefff94fbeaa64d3fca8e203f5"
+  },
+  {
+    "target": "paracetamol",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.041067038718042376,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.11825474825673521,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7765567765567766,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.041067038718042376,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.041067038718042376,
+    "district_wape_scenario": 0.02910610511203998,
+    "district_wape_xgb": 0.05369992056168802,
+    "district_wape_local": 0.0782254238891161,
+    "district_wape_baseline": 0.09078628373509022,
+    "district_wape_outbreak_scenario": 0.030107818332201636,
+    "district_wape_cold_start_outbreak": 0.45117142277725436,
+    "world_wape_observed": 0.02497452647370859,
+    "phc_mae": 19.595579489109834,
+    "phc_skill_vs_baseline": 0.11825474825673521,
+    "phc_noise_floor_mae": 18.91518123640904,
+    "district_coverage80": 0.7765567765567766,
+    "evaluation_run_id": "6de563eb823341f3beda08eb2b3a46bc"
+  },
+  {
+    "target": "iv_fluids",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.041292610995354494,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.06680241299108591,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7880690737833596,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.041292610995354494,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.041292610995354494,
+    "district_wape_scenario": 0.033267866879673674,
+    "district_wape_xgb": 0.049657448978384755,
+    "district_wape_local": 0.07708247043114906,
+    "district_wape_baseline": 0.07241948498342697,
+    "district_wape_outbreak_scenario": 0.03554095525199389,
+    "district_wape_cold_start_outbreak": 0.33557076777802325,
+    "world_wape_observed": 0.014180951293902413,
+    "phc_mae": 2.9264636017809837,
+    "phc_skill_vs_baseline": 0.06680241299108591,
+    "phc_noise_floor_mae": 2.891809490816598,
+    "district_coverage80": 0.7880690737833596,
+    "evaluation_run_id": "10890359f7ef4dad904d563d7158c806"
+  },
+  {
+    "target": "antibiotics",
+    "model_version": "1",
+    "selected_level": "country",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.030611129884175636,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.046106044679553926,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7799581371009943,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.030611129884175636,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.030611129884175636,
+    "district_wape_scenario": 0.03063420968729827,
+    "district_wape_xgb": 0.030586532252453304,
+    "district_wape_local": 0.06154213738397264,
+    "district_wape_baseline": 0.03287752982734694,
+    "district_wape_outbreak_scenario": 0.029952000897637807,
+    "district_wape_cold_start_outbreak": 0.029965617694215338,
+    "world_wape_observed": 0.007020812557808455,
+    "phc_mae": 6.256976396774308,
+    "phc_skill_vs_baseline": 0.046106044679553926,
+    "phc_noise_floor_mae": 6.291237559996361,
+    "district_coverage80": 0.7799581371009943,
+    "evaluation_run_id": "c6b954b8af514f349693eadb43d653c6"
+  },
+  {
+    "target": "insulin",
+    "model_version": "1",
+    "selected_level": "district",
+    "decision": "promoted to @champion",
+    "gates_passed": true,
+    "gates": [
+      {
+        "name": "district_wape",
+        "value": 0.04063438054243116,
+        "threshold": "<= 0.15",
+        "passed": true
+      },
+      {
+        "name": "phc_skill_vs_bl_mean7",
+        "value": 0.025598028724242994,
+        "threshold": ">= 0.0",
+        "passed": true
+      },
+      {
+        "name": "district_coverage80",
+        "value": 0.7878074306645735,
+        "threshold": "in [0.7, 0.95]",
+        "passed": true
+      },
+      {
+        "name": "no_regression_vs_champion",
+        "value": 0.04063438054243116,
+        "threshold": "no other champion",
+        "passed": null
+      }
+    ],
+    "district_wape_observed": 0.04063438054243116,
+    "district_wape_scenario": 0.04055092571552126,
+    "district_wape_xgb": 0.03567103400572213,
+    "district_wape_local": 0.0714500195745194,
+    "district_wape_baseline": 0.03816087741399189,
+    "district_wape_outbreak_scenario": 0.047687332320163665,
+    "district_wape_cold_start_outbreak": 0.0367579579559133,
+    "world_wape_observed": 0.008534269883985294,
+    "phc_mae": 0.9980641694030705,
+    "phc_skill_vs_baseline": 0.025598028724242994,
+    "phc_noise_floor_mae": 0.9982282134901205,
+    "district_coverage80": 0.7878074306645735,
+    "evaluation_run_id": "69c6e247a1234534bea08a0bc894abe0"
+  }
+]

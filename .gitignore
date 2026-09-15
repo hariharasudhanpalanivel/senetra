@@ -1,0 +1,7 @@
+# Local operational database (rebuild with: python seeds/build_sqlite.py senetra.db)
+senetra.db
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -1,0 +1,8 @@
+.venv
+mlruns
+reports
+tests
+**/__pycache__
+.pytest_cache
+Dockerfile
+docker-compose.yml

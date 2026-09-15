@@ -1,0 +1,102 @@
+# SENETRA ML stack.
+#   docker compose up -d mlflow api                      tracking server + forecast API
+#   docker compose run --rm pipeline                     validate -> eda -> train -> evaluate
+#   docker compose run --rm pipeline monitor             one-off monitoring run
+#   docker compose --profile jobs run --rm predict-writer   write PHC medicine forecasts to the DB
+#   docker compose --profile monitoring up -d monitor    daily monitoring loop
+# The database is mounted read-only everywhere except predict-writer. Override its location with
+# SENETRA_DB_FILE=/path/to/senetra.db.
+
+name: senetra-ml
+
+# Only `mlflow` builds the image; every other service reuses it (one build, no duplicate downloads).
+x-ml-image: &ml-image
+  image: senetra-ml:latest
+  pull_policy: never
+
+x-ml-env: &ml-env
+  MLFLOW_TRACKING_URI: http://mlflow:5000
+  SENETRA_DB_PATH: /data/senetra.db
+
+x-after-mlflow: &after-mlflow
+  mlflow:
+    condition: service_healthy
+
+services:
+  mlflow:
+    image: senetra-ml:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["mlflow"]
+    command:
+      - server
+      - --host=0.0.0.0
+      - --port=5000
+      - --workers=1
+      - --backend-store-uri=sqlite:////mlflow/mlflow.db
+      - --artifacts-destination=/mlflow/artifacts
+      - --serve-artifacts
+      - --allowed-hosts=mlflow,mlflow:5000,localhost,localhost:5000,127.0.0.1,127.0.0.1:5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 20s
+    restart: unless-stopped
+
+  api:
+    <<: *ml-image
+    command: ["serve", "--host", "0.0.0.0", "--port", "8080"]
+    environment: *ml-env
+    ports:
+      - "8001:8080"
+    volumes:
+      - ${SENETRA_DB_FILE:-../senetra.db}:/data/senetra.db:ro
+    depends_on: *after-mlflow
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/v1/targets', timeout=5)"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  pipeline:
+    <<: *ml-image
+    profiles: ["jobs"]
+    command: ["pipeline"]
+    environment: *ml-env
+    volumes:
+      - ${SENETRA_DB_FILE:-../senetra.db}:/data/senetra.db:ro
+      - ./reports:/app/reports
+    depends_on: *after-mlflow
+
+  predict-writer:
+    <<: *ml-image
+    profiles: ["jobs"]
+    command: ["predict", "--level", "world", "--targets", "ors", "paracetamol", "iv_fluids", "antibiotics", "insulin", "--write-db"]
+    environment: *ml-env
+    volumes:
+      - ${SENETRA_DB_FILE:-../senetra.db}:/data/senetra.db
+      - ./reports:/app/reports
+    depends_on: *after-mlflow
+
+  monitor:
+    <<: *ml-image
+    profiles: ["monitoring"]
+    command: ["monitor", "--interval-seconds", "86400"]
+    environment: *ml-env
+    volumes:
+      - ${SENETRA_DB_FILE:-../senetra.db}:/data/senetra.db:ro
+      - ./reports:/app/reports
+    depends_on: *after-mlflow
+    restart: unless-stopped
+
+volumes:
+  mlflow-data:
